@@ -50,7 +50,7 @@ This allows us to express the variational problem in a more compact way. Second,
    u^{n+\frac{1}{2}}\approx \frac{u^{n}+ u^{n+1}}{2}.
 ```
 Third, we notice that the variational problem [](ipcs-one) arises from the integration by parts of the term 
-$langle -\nabla \cdot \sigma, v\rangle$. Just as for the [linear elasticity problem](./linearelasticity.md), we obtain
+$\langle -\nabla \cdot \sigma, v\rangle$. Just as for the [linear elasticity problem](./linearelasticity.md), we obtain
 ```{math}
     \langle -\nabla \cdot \sigma, v\rangle =
     \langle \sigma, \epsilon(v) \rangle 
