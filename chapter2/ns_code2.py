@@ -21,7 +21,7 @@
 # To be able to solve this problem efficiently and ensure numerical stability, we will subsitute our first order backward difference scheme with a second order backward difference approximation, and use an explicit Adams-Bashforth approximation of the non-linear term.
 #
 # ```{admonition} Computationally demanding demo
-# This demo is computationally demanding, with a run-time up to 15 minutes, as it is using parameters from the DFG 2D-3 benchmark, which consists of 12800 time steps. It is adviced to download this demo and  not run it in a browser. This runtime of the demo can be increased by using 2 or 3 mpi processes.
+# This demo is computationally demanding, with a run-time up to 15 minutes, as it is using parameters from the DFG 2D-3 benchmark, which consists of 12800 time steps. It is adviced to download this demo and  not run it in a browser. The runtime of  can be decreased by using 2 or 3 mpi processes.
 # ```
 #
 # The computational geometry we would like to use is
@@ -267,7 +267,7 @@ f = Constant(mesh, PETSc.ScalarType((0,0)))
 F1 = rho / k * dot(u - u_n, v) * dx 
 F1 += rho * inner(dot(1.5 * u_n - 0.5 * u_n1, 0.5 * nabla_grad(u + u_n)), v) * dx
 F1 += 0.5 * mu * inner(grad(u + u_n), grad(v))*dx - dot(p_, div(v))*dx
-F1 -= dot(f, v) * dx
+F1 += dot(f, v) * dx
 a1 = form(lhs(F1))
 L1 = form(rhs(F1))
 A1 = create_matrix(a1)
